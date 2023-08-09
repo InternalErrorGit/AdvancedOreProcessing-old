@@ -2,6 +2,7 @@ package net.internalerror.advancedoreprocessing;
 
 import com.mojang.logging.LogUtils;
 import net.internalerror.advancedoreprocessing.forge.client.model.generators.ModBlockStateProvider;
+import net.internalerror.advancedoreprocessing.forge.client.model.generators.ModItemModelProvider;
 import net.internalerror.advancedoreprocessing.forge.registries.ModBlocks;
 import net.internalerror.advancedoreprocessing.forge.registries.ModItems;
 import net.minecraft.data.DataGenerator;
@@ -52,6 +53,7 @@ public class AdvancedOreProcessing {
       final boolean run = event.includeServer();
 
       dataGenerator.addProvider(run, new ModBlockStateProvider(dataGenerator, existingFileHelper));
+      dataGenerator.addProvider(run, new ModItemModelProvider(dataGenerator, existingFileHelper));
 
     }
 
