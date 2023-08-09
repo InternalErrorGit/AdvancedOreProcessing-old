@@ -1,8 +1,8 @@
-package net.internalerror.advancedoreprocessing.forge.client.model.generators;
+package net.internalerror.advancedoreprocessing.client.model.generators;
 
 import com.mojang.logging.LogUtils;
 import net.internalerror.advancedoreprocessing.AdvancedOreProcessing;
-import net.internalerror.advancedoreprocessing.forge.registries.ModBlocks;
+import net.internalerror.advancedoreprocessing.registries.ModBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockStateProvider;

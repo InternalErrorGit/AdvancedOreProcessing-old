@@ -1,16 +1,15 @@
-package net.internalerror.advancedoreprocessing.forge.client.model.generators;
+package net.internalerror.advancedoreprocessing.client.model.generators;
 
 import com.mojang.logging.LogUtils;
 import net.internalerror.advancedoreprocessing.AdvancedOreProcessing;
-import net.internalerror.advancedoreprocessing.forge.registries.ModBlocks;
-import net.internalerror.advancedoreprocessing.forge.registries.ModItems;
+import net.internalerror.advancedoreprocessing.registries.ModBlocks;
+import net.internalerror.advancedoreprocessing.registries.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.slf4j.Logger;
 

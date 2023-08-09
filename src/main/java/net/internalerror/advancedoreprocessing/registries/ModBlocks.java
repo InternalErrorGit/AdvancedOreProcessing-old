@@ -1,4 +1,4 @@
-package net.internalerror.advancedoreprocessing.forge.registries;
+package net.internalerror.advancedoreprocessing.registries;
 
 import com.mojang.logging.LogUtils;
 import net.internalerror.advancedoreprocessing.AdvancedOreProcessing;
@@ -36,4 +36,7 @@ public final class ModBlocks {
     register.register(pEventBus);
   }
 
+  private ModBlocks(){
+    // private constructor
+  }
 }

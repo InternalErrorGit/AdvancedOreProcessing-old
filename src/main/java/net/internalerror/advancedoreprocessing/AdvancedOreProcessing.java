@@ -1,10 +1,11 @@
 package net.internalerror.advancedoreprocessing;
 
-import com.mojang.logging.LogUtils;
-import net.internalerror.advancedoreprocessing.forge.client.model.generators.ModBlockStateProvider;
-import net.internalerror.advancedoreprocessing.forge.client.model.generators.ModItemModelProvider;
-import net.internalerror.advancedoreprocessing.forge.registries.ModBlocks;
-import net.internalerror.advancedoreprocessing.forge.registries.ModItems;
+import net.internalerror.advancedoreprocessing.client.model.generators.ModBlockStateProvider;
+import net.internalerror.advancedoreprocessing.client.model.generators.ModItemModelProvider;
+import net.internalerror.advancedoreprocessing.common.data.tags.ModBlockTagsProvider;
+import net.internalerror.advancedoreprocessing.common.data.tags.ModItemTagsProvider;
+import net.internalerror.advancedoreprocessing.registries.ModBlocks;
+import net.internalerror.advancedoreprocessing.registries.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -15,13 +16,11 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.slf4j.Logger;
 
 @Mod(AdvancedOreProcessing.MOD_ID)
 public class AdvancedOreProcessing {
 
   public static final String MOD_ID = "advancedoreprocessing";
-  private static final Logger LOGGER = LogUtils.getLogger();
 
   public AdvancedOreProcessing() {
     IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -45,6 +44,11 @@ public class AdvancedOreProcessing {
 
   @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
   public static class ModDataGenerator {
+
+    private ModDataGenerator() {
+      // private constructor
+    }
+
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
       final DataGenerator dataGenerator = event.getGenerator();
@@ -54,7 +58,9 @@ public class AdvancedOreProcessing {
 
       dataGenerator.addProvider(run, new ModBlockStateProvider(dataGenerator, existingFileHelper));
       dataGenerator.addProvider(run, new ModItemModelProvider(dataGenerator, existingFileHelper));
-
+      ModBlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(dataGenerator, existingFileHelper);
+      dataGenerator.addProvider(run, blockTagsProvider);
+      dataGenerator.addProvider(run, new ModItemTagsProvider(dataGenerator, blockTagsProvider, existingFileHelper));
     }
 
   }

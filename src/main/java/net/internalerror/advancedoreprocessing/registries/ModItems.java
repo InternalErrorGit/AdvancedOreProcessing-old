@@ -1,4 +1,4 @@
-package net.internalerror.advancedoreprocessing.forge.registries;
+package net.internalerror.advancedoreprocessing.registries;
 
 import com.mojang.logging.LogUtils;
 import net.internalerror.advancedoreprocessing.AdvancedOreProcessing;
@@ -25,7 +25,6 @@ public final class ModItems {
   public static final RegistryObject<Item> TIN_NUGGET = register("tin_nugget", () -> new Item((new Item.Properties()).tab(CreativeModeTab.TAB_MATERIALS)));
   public static final RegistryObject<Item> TIN_POWDER = register("tin_powder", () -> new Item((new Item.Properties()).tab(CreativeModeTab.TAB_MATERIALS)));
   public static final RegistryObject<Item> TIN_SHARD = register("tin_shard", () -> new Item((new Item.Properties()).tab(CreativeModeTab.TAB_MATERIALS)));
-
   public static final RegistryObject<Item> TIN_ORE = register("tin_ore", () -> new BlockItem(ModBlocks.TIN_ORE.get(), new Item.Properties()));
   public static final RegistryObject<Item> DEEPSLATE_TIN_ORE = register("deepslate_tin_ore", () -> new BlockItem(ModBlocks.DEEPSLATE_TIN_ORE.get(), new Item.Properties()));
   public static final RegistryObject<Item> TIN_BLOCK = register("tin_block", () -> new BlockItem(ModBlocks.TIN_BLOCK.get(), new Item.Properties()));
@@ -40,5 +39,9 @@ public final class ModItems {
 
   public static void init(IEventBus pEventBus) {
     register.register(pEventBus);
+  }
+
+  private ModItems() {
+    // private constructor
   }
 }
