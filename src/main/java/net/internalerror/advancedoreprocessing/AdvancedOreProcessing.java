@@ -2,6 +2,7 @@ package net.internalerror.advancedoreprocessing;
 
 import net.internalerror.advancedoreprocessing.client.model.generators.ModBlockStateProvider;
 import net.internalerror.advancedoreprocessing.client.model.generators.ModItemModelProvider;
+import net.internalerror.advancedoreprocessing.common.data.recipes.ModRecipeProvider;
 import net.internalerror.advancedoreprocessing.common.data.tags.ModBlockTagsProvider;
 import net.internalerror.advancedoreprocessing.common.data.tags.ModItemTagsProvider;
 import net.internalerror.advancedoreprocessing.registries.ModBlocks;
@@ -61,6 +62,7 @@ public class AdvancedOreProcessing {
       ModBlockTagsProvider blockTagsProvider = new ModBlockTagsProvider(dataGenerator, existingFileHelper);
       dataGenerator.addProvider(run, blockTagsProvider);
       dataGenerator.addProvider(run, new ModItemTagsProvider(dataGenerator, blockTagsProvider, existingFileHelper));
+      dataGenerator.addProvider(run, new ModRecipeProvider(dataGenerator));
     }
 
   }
